@@ -1,27 +1,38 @@
 import requests
-import json
 
-class MakeApiCall:
+def trace(*args):
+  """Used for debug output"""
+  #print (*args)  # Comment out this line to remove debug output
+  pass
 
-    def get_data(self, api):
-        response = requests.get(f"{api}")
-        if response.status_code == 200:
-            print("sucessfully fetched the data")
-            self.formatted_print(response.json())
+# This base URL works, but doesn't return anything too interesting
+# After running this script, read https://www.boredapi.com/ and
+# figure out how to change it to get back a filtered activity.
+# The filter is up to you: number of people, category, price, etc.
+# Tip: try testing the API URLs directly in a browser first
+URL = "https://swapi.dev/api/people/? + people"
+people = int (input("Type in a number between 1 and 83: "))
 
-    def formatted_print(self, obj):
-        text = json.dumps(obj, sort_keys=True, indent=4)
-        print(text)
+# Get data from the web site and put it into Python collections
+trace ("Calling", URL)
+response = requests.get(URL) # Get data from the URL
+response.raise_for_status()  # Throw an exception if the request failed
+data = response.json()       # Parse the response into JSON
 
-    def __init__(self, api):
-        self.get_data(api)
+# See what the raw data looks like
+trace ("\nText returned:", response.text)
 
+# You can also loop through each item (name/value pairs) in the JSON
+trace ("\nHere are all the kay/value pairs in the JSON response:")
+for key, value in data.items():
+  trace (key, ": ", value)
 
-if __name__ == "__main__":
-  while True:
-      chosen_category = input("which catagory do you want to filter? accessibility, activity, key, link, participants, price, or type? ")
-      activity_type = input("Give the value to your chosen category (" + chosen_category + "): ")
-      api_call = MakeApiCall("https://www.boredapi.com/api/activity?" + chosen_category + "=" + activity_type)
-      done = input("Are you done (y or n)? ")
-      if done == "y":
-        break
+# After running this script and using the right URL to get the data
+# you need, comment out the print statement in the trace function to
+# remove the debug output, and add your own print statement at the end.
+# Something that shows both the filter you used and the activity.
+# E.g., print (f"Here's a free activity for you: {data['activity']}")
+
+print ("Here's the character for you: \n Name: {} \n Height: {}".format(data ['results'][people-1]['name'], data ['results'][people-1]['height'],))
+
+#print ("Here's the activity for you: " + data ['activity'])
