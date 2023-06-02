@@ -33,6 +33,6 @@ for key, value in data.items():
 # Something that shows both the filter you used and the activity.
 # E.g., print (f"Here's a free activity for you: {data['activity']}")
 
-print ("Here's the character for you: \n Name: {} \n Height: {}".format(data ['results'][people-1]['name'], data ['results'][people-1]['height'],))
+print ("Here's the character for you: \n Name: {} \n Height: {} \n Mass: {}".format(data ['results'][people-1]['name'], data ['results'][people-1]['height'], data ['results'][people-1]['mass']))
 
 #print ("Here's the activity for you: " + data ['activity'])
