@@ -10,8 +10,7 @@ def trace(*args):
 # figure out how to change it to get back a filtered activity.
 # The filter is up to you: number of people, category, price, etc.
 # Tip: try testing the API URLs directly in a browser first
-URL = "https://swapi.dev/api/people/? + people"
-
+URL = "https://swapi.dev/api/people/?"
 
 # Get data from the web site and put it into Python collections
 trace ("Calling", URL)
@@ -30,20 +29,19 @@ for key, value in data.items():
 people = data["results"]
 for person in people:
   print (person["name"]) 
-useranswer = input("Which person do you want to learn more about? ")
-for useranswer in people:
-  print (person["gender"]) 
-  print (person["height"]) 
-  print (person["mass"]) 
-  print (person["hair_color"])
-  print (person["eye_color"])     
-  print (person["birth_year"])
-  break
-  
+name = input("Which person do you want to learn more about? ").lower()
+for person in people:
+  if person["name"].lower() == name:
+    print ("Gender: {}".format(person["gender"])) 
+    print ("Height: {}".format(person["height"])) 
+    print ("Weight: {}".format(person["mass"])) 
+    print ("Hair Color: {}".format(person["hair_color"]))
+    print ("Eye Color: {}".format(person["eye_color"]))  
+    print ("Birth Year: {}".format(person["birth_year"]))
+    break 
+
 # After running this script and using the right URL to get the data
 # you need, comment out the print statement in the trace function to
 # remove the debug output, and add your own print statement at the end.
 # Something that shows both the filter you used and the activity.
 # E.g., print (f"Here's a free activity for you: {data['activity']}")
-
-#print ("Here's the character for you: \n Name: {} \n Height: {} \n Mass: {}".format(data ['results'][people-1]['name'], data ['results'][people-1]['height'], data ['results'][people-1]['mass']))
