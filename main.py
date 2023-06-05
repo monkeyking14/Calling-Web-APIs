@@ -30,14 +30,15 @@ for key, value in data.items():
 people = data["results"]
 for person in people:
   print (person["name"]) 
-useranswer = input("Which person do you want to learn more about?")
+useranswer = input("Which person do you want to learn more about? ")
 for useranswer in people:
-  print (useranswer["gender"]) 
-  print (useranswer["height"]) 
-  print (useranswer["mass"]) 
-  print (useranswer["hair_color"])
-  print (useranswer["eye_color"])     
-  print (useranswer["birth_year"])
+  print (person["gender"]) 
+  print (person["height"]) 
+  print (person["mass"]) 
+  print (person["hair_color"])
+  print (person["eye_color"])     
+  print (person["birth_year"])
+  break
   
 # After running this script and using the right URL to get the data
 # you need, comment out the print statement in the trace function to
