@@ -10,8 +10,6 @@ def trace(*args):
 # figure out how to change it to get back a filtered activity.
 # The filter is up to you: number of people, category, price, etc.
 # Tip: try testing the API URLs directly in a browser first
-
-people = int (input("Type in a number between 1 and 10: "))
 URL = "https://swapi.dev/api/people/? + people"
 
 
