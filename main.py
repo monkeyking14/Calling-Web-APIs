@@ -10,30 +10,6 @@ def trace(*args):
 # figure out how to change it to get back a filtered activity.
 # The filter is up to you: number of people, category, price, etc.
 # Tip: try testing the API URLs directly in a browser first
-gender = input ("What is your gender (male or female)?")
-if gender == "male":
-  print ("")
-else:
-  print ("")
-  
-weight = int (input ("What is your weight (whole number)? "))
-if weight <= "150":
-  print ("")
-elif weight >= "200":
-  print ("")
-  
-eye_color = input ("What color is your eyes (blue, yellow, red, brown, gray)? ")
-if eye_color == "blue":
-  p
-elif eye_color == "yellow":
-  p
-elif eye_color == "red":
-  p
-elif eye_color == "brown":
-  p
-elif eye_color == "gray":
-  p
-
 people = int (input("Type in a number between 1 and 10: "))
 URL = "https://swapi.dev/api/people/? + people"
 
@@ -52,6 +28,9 @@ trace ("\nHere are all the kay/value pairs in the JSON response:")
 for key, value in data.items():
   trace (key, ": ", value)
 
+people = data["results"]
+for person in people:
+  print (person["name"], person["gender"])
   
 # After running this script and using the right URL to get the data
 # you need, comment out the print statement in the trace function to
@@ -59,4 +38,4 @@ for key, value in data.items():
 # Something that shows both the filter you used and the activity.
 # E.g., print (f"Here's a free activity for you: {data['activity']}")
 
-print ("Here's the character for you: \n Name: {} \n Height: {} \n Mass: {}".format(data ['results'][people-1]['name'], data ['results'][people-1]['height'], data ['results'][people-1]['mass']))
+#print ("Here's the character for you: \n Name: {} \n Height: {} \n Mass: {}".format(data ['results'][people-1]['name'], data ['results'][people-1]['height'], data ['results'][people-1]['mass']))
