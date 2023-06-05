@@ -11,10 +11,8 @@ def trace(*args):
 # The filter is up to you: number of people, category, price, etc.
 # Tip: try testing the API URLs directly in a browser first
 gender = input ("What is your gender (male or female)?")
-if gender == "male":
-  print ("")
-else:
-  print ("")
+
+  
   
 weight = int (input ("What is your weight (whole number)? "))
 if weight <= "150":
