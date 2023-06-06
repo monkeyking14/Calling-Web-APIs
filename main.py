@@ -3,8 +3,7 @@ import requests
 def trace(*args):
   """Used for debug output"""
   #print (*args)  # Comment out this line to remove debug output
-  pass
-
+pass
 URL = "https://swapi.dev/api/people/?page=1"
 
 # Get data from the web site and put it into Python collections
