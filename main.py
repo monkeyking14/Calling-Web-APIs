@@ -5,7 +5,7 @@ def trace(*args):
   #print (*args)  # Comment out this line to remove debug output
   pass
 
-URL = "https://swapi.dev/api/people/?"
+URL = "https://swapi.dev/api/people/?page=1"
 
 # Get data from the web site and put it into Python collections
 trace ("Calling", URL)
@@ -54,7 +54,7 @@ for key, value in data.items():
   trace (key, ": ", value)
 
 question =input("Do you want to learn about more characters? ").lower()
-if input == "yes":
+if question == "yes":
   people = data["results"]
   for person in people:
     print (person["name"]) 
