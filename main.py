@@ -38,7 +38,47 @@ for useranswer in people:
   print (useranswer["hair_color"])
   print (useranswer["eye_color"])     
   print (useranswer["birth_year"])
-  
+  break
+
+question =input("Do you want to learn about more characters?")
+if input == "yes":
+  URL = "https://swapi.dev/api/people/?page=2"
+  trace ("Calling", URL)
+response = requests.get(URL) # Get data from the URL
+response.raise_for_status()  # Throw an exception if the request failed
+data = response.json()       # Parse the response into JSON
+
+# See what the raw data looks like
+trace ("\nText returned:", response.text)
+
+# You can also loop through each item (name/value pairs) in the JSON
+trace ("\nHere are all the kay/value pairs in the JSON response:")
+for key, value in data.items():
+  trace (key, ": ", value)
+
+people = data["results"]
+for person in people:
+  print (person["name"]) 
+useranswer = input("Which person do you want to learn more about?")
+for useranswer in people:
+  print (useranswer["gender"]) 
+  print (useranswer["height"]) 
+  print (useranswer["mass"]) 
+  print (useranswer["hair_color"])
+  print (useranswer["eye_color"])     
+  print (useranswer["birth_year"])
+  break
+elif input == "no": 
+ break
+
+
+
+
+
+
+
+
+
 # After running this script and using the right URL to get the data
 # you need, comment out the print statement in the trace function to
 # remove the debug output, and add your own print statement at the end.
