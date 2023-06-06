@@ -5,7 +5,6 @@ def trace(*args):
   #print (*args)  # Comment out this line to remove debug output
   pass
 
-
 URL = "https://swapi.dev/api/people/?"
 
 # Get data from the web site and put it into Python collections
@@ -25,42 +24,6 @@ for key, value in data.items():
 people = data["results"]
 for person in people:
   print (person["name"]) 
-
-useranswer = input("Which person do you want to learn more about?")
-for useranswer in people:
-  print (useranswer["gender"]) 
-  print (useranswer["height"]) 
-  print (useranswer["mass"]) 
-  print (useranswer["hair_color"])
-  print (useranswer["eye_color"])     
-  print (useranswer["birth_year"])
-  break
-
-question =input("Do you want to learn about more characters?")
-if input == "yes":
-  URL = "https://swapi.dev/api/people/?page=2"
-  trace ("Calling", URL)
-  response = requests.get(URL) # Get data from the URL
-  response.raise_for_status()  # Throw an exception if the request failed
-  data = response.json()       # Parse the response into JSON
-  trace ("\nText returned:", response.text)
-  
-  trace ("\nHere are all the kay/value pairs in the JSON response:")
-for key, value in data.items():
-  trace (key, ": ", value)
-
-people = data["results"] 
-for person in people:
-  print (person["name"]) 
-useranswer = input("Which person do you want to learn more about?")
-for useranswer in people:
-  print (useranswer["gender"]) 
-  print (useranswer["height"]) 
-  print (useranswer["mass"]) 
-  print (useranswer["hair_color"])
-  print (useranswer["eye_color"])     
-  print (useranswer["birth_year"])
-  break
 
 name = input("Which person do you want to learn more about? ").lower()
 for person in people:
