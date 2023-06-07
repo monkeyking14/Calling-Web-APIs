@@ -6,7 +6,7 @@ def trace(*args):
 pass
 URL = "https://swapi.dev/api/people/?page=1"
 
-# Get data from the web site and put it into Python collections
+# Get data from the web site and put it into Python collections    
 trace ("Calling", URL)
 response = requests.get(URL) # Get data from the URL
 response.raise_for_status()  # Throw an exception if the request failed
